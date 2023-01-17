@@ -32,7 +32,7 @@ class Database
         return $this->statement->fetch();
 
     }
-  
+    // if there is no note, then abort
     public function findOrFail()
     {
        // calling find() method
