@@ -1,8 +1,6 @@
-<!-- config for production or test -->
 <?php
 
 return [
-    // database key 
     'database' => [
         'host' => 'localhost',
         'port' => 3306,

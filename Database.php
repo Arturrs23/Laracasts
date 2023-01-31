@@ -1,10 +1,8 @@
-
 <?php
 
 class Database
 {
     public $connection;
-    // making PDO $statement obj public to fetch() it outside scope
     public $statement;
 
     public function __construct($config, $username = 'root', $password = '')
@@ -18,29 +16,31 @@ class Database
 
     public function query($query, $params = [])
     {
-        // assigning PDO statement to database class and then calling retun $this obj
-       $this->statement = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
 
         $this->statement->execute($params);
-        // return object itself - Database class
+
         return $this;
+    }
+
+    public function get()
+    {
+        return $this->statement->fetchAll();
     }
 
     public function find()
     {
-        // fetching the PDO statement
         return $this->statement->fetch();
-
     }
-    // if there is no note, then abort
+
     public function findOrFail()
     {
-       // calling find() method
-       $result = $this->find();
-       if(! $result){
-        abort();
-       }
-       return $result;
+        $result = $this->find();
 
+        if (! $result) {
+            abort();
+        }
+
+        return $result;
     }
 }
