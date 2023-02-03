@@ -5,6 +5,7 @@ namespace Core;
 class Router
 {
     //Array to store all the defined routes
+    //  protected array will be available only in this class
     protected $routes = [];
 //Adds a route to the routes array
     public function add($method, $uri, $controller)
@@ -17,7 +18,7 @@ class Router
     }
 
 
-    // NEW Routes
+    // route methods
     public function get($uri, $controller)
     {
         $this->add('GET', $uri, $controller);
@@ -27,12 +28,12 @@ class Router
     {
         $this->add('POST', $uri, $controller);
     }
-
+// deleting
     public function delete($uri, $controller)
     {
         $this->add('DELETE', $uri, $controller);
     }
-
+// updating
     public function patch($uri, $controller)
     {
         $this->add('PATCH', $uri, $controller);
