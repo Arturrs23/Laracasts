@@ -9,12 +9,14 @@ class Container
     protected $bindings = [];
 
     // Bind a key to a resolver
+    // add
     public function bind($key, $resolver)
     {
         $this->bindings[$key] = $resolver;
     }
 
     // Resolve a binding given the key
+    // remove
     public function resolve($key)
     {
         // Check if there is a binding for the key
