@@ -1,5 +1,6 @@
 <?php 
-
+// form validator
+require 'validator.php';
 
 // Require the config file
 $config = require('config.php');
@@ -14,13 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 //IF server side string length VALIDATION for form
 $errors = [];
-if(strlen($_POST['body']) === 0){
-$errors['body'] = 'Please fill in the textarea';
+
+$validator = new Validator();
+// min chars are 1 and max 1000
+if(! Validator::string($_POST['body'], 1, 1000)){
+$errors['body'] = 'Min 1 character and max 1000';
 }
 // IF the text is longer 1000 chars, error
-if(strlen($_POST['body']) > 1000){
-    $errors['body'] = 'Cannot be more than 1000 characters';
-    }
+// if(strlen($_POST['body']) > 1000){
+//     $errors['body'] = 'Cannot be more than 1000 characters';
+//     }
     
 
 if (empty($errors)) {

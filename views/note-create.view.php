@@ -14,13 +14,13 @@
                                 <label for="body" class="block text-sm font-medium text-gray-700">My Note</label>
 
                                 <div class="mt-1">
-                                    <!-- correspanding name and id -->
+                                    <!-- correspanding name and id -->                                        
+                                     <!-- validate the text, but do not lose it from the client -->
+
                                     <textarea required id="body" name="body" rows="3"
                                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="Here's an idea for a note...">
-                                        <!-- validate the text, but do not lose it from the client -->
                                         <?= isset($_POST['body']) ? $_POST['body'] : '' ?>
-                                    
                                     </textarea>
                                     <!-- look at the errors array and if it is empty  -->
                                     <?php if (isset($errors['body'])) : ?>
