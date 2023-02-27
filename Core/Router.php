@@ -44,6 +44,9 @@ class Router
         $this->add('PUT', $uri, $controller);
     }
 
+
+
+    
     public function route($uri, $method)
     {
         //Iterate over all the routes
